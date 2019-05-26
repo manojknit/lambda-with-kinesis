@@ -14,10 +14,13 @@ exports.handler = function(event, context) {
 };
 ```
 3. Zip as deployment package
-```$ zip lambdawithkinesisfunction.zip index.js```
+```
+$ zip lambdawithkinesisfunction.zip index.js
+```
 
 4. Deploy lambda 
-```aws lambda create-function --function-name lambdawithkinesisfunction \
+```
+aws lambda create-function --function-name lambdawithkinesisfunction \
 --zip-file fileb://lambdawithkinesisfunction.zip --handler index.handler --runtime nodejs8.10 \
 --role arn:aws:iam::494875521123:role/service-role/iPromoLambdaRole
 ```
@@ -45,15 +48,18 @@ C02TN40KHTD5:lambda-with-kinesis mk194903$ aws lambda create-function --function
 }
 ```
 5. Invoke to run lambda
-```$ aws lambda invoke --function-name lambdawithkinesisfunction --payload file://input.txt out.txt
+```
+$ aws lambda invoke --function-name lambdawithkinesisfunction --payload file://input.txt out.txt
  Response is saved to out.txt
- ```
+```
  6. Create Kinesis Stream
-``` $ aws kinesis create-stream --stream-name lambdawithkinesis-stream --shard-count 1
+```
+$ aws kinesis create-stream --stream-name lambdawithkinesis-stream --shard-count 1
 ```
  
  7. Run descrive to get new created kinesis. 
- ```$ aws kinesis describe-stream --stream-name lambdawithkinesis-stream
+ ```
+ $ aws kinesis describe-stream --stream-name lambdawithkinesis-stream
  ```
  ```
  C02TN40KHTD5:lambda-with-kinesis mk194903$ aws kinesis describe-stream --stream-name lambdawithkinesis-stream
@@ -87,12 +93,14 @@ C02TN40KHTD5:lambda-with-kinesis mk194903$ aws lambda create-function --function
 }
 ```
 8. Add the event source to lambda
-```$ aws lambda create-event-source-mapping --function-name lambdawithkinesisfunction \
+```
+$ aws lambda create-event-source-mapping --function-name lambdawithkinesisfunction \
 --event-source  arn:aws:kinesis:us-east-1:494875521123:stream/lambdawithkinesis-stream \
 --batch-size 100 --starting-position LATEST
 ```
 9. Running the list-event-source-mappings command to verify event mapping.
-```$ aws lambda list-event-source-mappings --function-name lambdawithkinesisfunction \
+```
+$ aws lambda list-event-source-mappings --function-name lambdawithkinesisfunction \
 --event-source arn:aws:kinesis:us-east-1:494875521123:stream/lambdawithkinesis-stream
 ```
 ```
@@ -114,7 +122,8 @@ C02TN40KHTD5:lambda-with-kinesis mk194903$ aws lambda list-event-source-mappings
 }
 ```
 10. Let's test the stream
-```$ aws kinesis put-record --stream-name lambdawithkinesis-stream --partition-key 1 \
+```
+$ aws kinesis put-record --stream-name lambdawithkinesis-stream --partition-key 1 \
 --data "Hi, this is my first test."
 ```
 This message can be verified in cloudwatch.

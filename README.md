@@ -128,4 +128,5 @@ $ aws kinesis put-record --stream-name lambdawithkinesis-stream --partition-key 
 ```
 This message can be verified in cloudwatch.
 
-
+#### Reference:
+[Serverless Data Processing](https://aws.amazon.com/lambda/data-processing/?trk=ps_a131L000005OoXQQA0)

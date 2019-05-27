@@ -131,3 +131,4 @@ This message can be verified in cloudwatch.
 #### Reference:
 * [Serverless Data Processing](https://aws.amazon.com/lambda/data-processing/?trk=ps_a131L000005OoXQQA0)
 * [How we built a data pipeline with Lambda Architecture using Spark/Spark Streaming](https://medium.com/walmartlabs/how-we-built-a-data-pipeline-with-lambda-architecture-using-spark-spark-streaming-9d3b4b4555d3)
+* [Using AWS Lambda with Amazon Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis-example.html)

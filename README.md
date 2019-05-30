@@ -1,4 +1,8 @@
  # Big Data Processing with Amazon Kinesis and lambda
+ 
+#### Architecture Diagram:
+![System Architecture](https://github.com/manojknit/lambda-with-kinesis/raw/master/images/architecture.png)
+
 
 1. Go To AWS IAM. Create an execution role and assign Permissions – AWSLambdaKinesisExecutionRole.
 2. Create lambda with following file index.js
